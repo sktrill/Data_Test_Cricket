@@ -1,0 +1,21 @@
+<div style = "padding: 24px; padding-right: 40px">
+  <h4><strong>Discussion</strong></h4>
+  <p>
+    Metric 1 is a measure of consistency, while metric 2 is a measure of performance. Both metrics use the factors (of home and top team)
+    to gauge the quality of the Test batsman and are scaled by the batsman's real Test batting average. Let us explore a few issues:
+    <ul>
+      <li><strong>Missing factors</strong> - the factors used were primarily categorical. This allowed for ease of
+      testing significance with both the log-rank and Cox schoenfeld residuals where the proportional hazards assumption was
+      not violated. It is possible however for the model to include potential confounders as factors if for example
+      the hazard function changed over time with a built in periodicity. This would not be captured with the tests performed.
+      </li>
+      <li><strong>Data skew</strong> - the majority of the batsman and innings considered in this analysis were from the
+      90s to 00s. This game has evolved quite a bit in those decades from years past including batsman scoring at a faster pace.
+      As a result such a skew may benefit older batsman that were more likely to survive more balls, as was the nature of the old game.
+      <li><strong>Rule changes</strong> - changes in pitch conditions over 40 years, fielding regulations, batting equipment
+      (such as helmets, which became ubiquitous in use only in the 80s) would all have affected batsman survival rates across cohorts.</li>
+      <li><strong>Selection bias</strong> - newer batsman whose careers are not yet over but have garnered success so far are
+        optimistically represented. Their stars may wane as their careers do, eventually ending up in a lower cluster over time.</li>
+    </ul>
+  </p>
+</div>

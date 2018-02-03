@@ -1,0 +1,101 @@
+player,start,avg,espnid,cohort,team
+SR Tendulkar,1989,53.78,35320,90s,India
+SC Ganguly,1996,42.17,28779,90s,India
+R Dravid,1996,52.31,28114,90s,India
+SM Gavaskar,1971,51.12,28794,70s,India
+VVS Laxman,1996,45.97,30750,90s,India
+V Sehwag,2001,49.34,35263,00s,India
+DB Vengsarkar,1976,42.13,35654,70s,India
+M Azharuddin,1984,45.03,26329,80s,India
+V Kohli,2011,53.31,253802,Modern,India
+CA Pujara,2010,51.09,32540,Modern,India
+MS Dhoni,2005,38.09,28081,00s,India
+G Gambhir,2004,41.95,28763,00s,India
+AR Border,1978,50.56,4174,70s,Australia
+RT Ponting,1995,51.85,7133,90s,Australia
+SR Waugh,1985,51.06,8192,80s,Australia
+MA Taylor,1989,43.49,7924,80s,Australia
+DC Boon,1984,43.65,4169,80s,Australia
+MJ Clarke,2004,49.1,4578,00s,Australia
+ME Waugh,1991,41.81,8189,90s,Australia
+ML Hayden,1994,50.73,5616,90s,Australia
+GS Chappell,1970,53.86,4558,70s,Australia
+MEK Hussey,2005,51.52,5939,00s,Australia
+SPD Smith,2010,63.75,267192,Modern,Australia
+DG Bradman,1928,99.94,4188,Bradman,Australia
+M Rahim,2005,35.16,56029,00s,Bangladesh
+T Iqbal,2008,39.25,56194,00s,Bangladesh
+M Ashraful,2001,24,55988,00s,Bangladesh
+SA Hasan,2007,40.38,56143,00s,Bangladesh
+H Bashar,2000,30.87,55906,00s,Bangladesh
+AN Cook,2006,46.35,11728,00s,England
+G Boycott,1964,47.72,9187,70s,England
+MA Atherton,1989,37.69,8579,80s,England
+GA Gooch,1975,42.58,13399,70s,England
+AJ Stewart,1990,39.54,20372,90s,England
+IR Bell,2004,42.69,9062,00s,England
+GP Thorpe,1993,44.66,21537,90s,England
+AJ Strauss,2004,40.91,20387,00s,England
+N Hussain,1990,37.18,14325,90s,England
+KP Pietersen,2005,47.28,19296,00s,England
+MP Vaughan,1999,41.44,22182,90s,England
+JE Root,2012,53.28,303669,Modern,England
+SP Fleming,1994,40.06,37000,90s,New Zealand
+JG Wright,1978,37.82,38757,70s,New Zealand
+MD Crowe,1982,45.36,36622,80s,New Zealand
+LRPL Taylor,2007,48.04,38699,00s,New Zealand
+KS Williamson,2010,50.62,277906,Modern,New Zealand
+BB McCullum,2004,38.64,37737,00s,New Zealand
+NJ Astle,1996,37.02,36185,90s,New Zealand
+DL Vettori,1997,30.15,38710,90s,New Zealand
+Y Khan,2000,52.05,43652,00s,Pakistan
+I-ul-Haq,1992,50.16,40570,90s,Pakistan
+J Miandad,1976,52.57,40879,70s,Pakistan
+M Yousuf,1998,52.29,43650,90s,Pakistan
+A Ali,2010,46.62,39037,Modern,Pakistan
+M-ul-Haq,2001,46.62,41378,00s,Pakistan
+S Malik,1982,43.69,42623,80s,Pakistan
+A Shafiq,2010,39.71,316397,Modern,Pakistan
+I Ahmed,1987,37.67,40551,80s,Pakistan
+S Anwar,1990,45.52,42605,90s,Pakistan
+I Khan,1971,37.69,40560,70s,Pakistan
+JH Kallis,1995,55.25,45789,90s,South Africa
+HM Amla,2004,49,43906,00s,South Africa
+G Kirsten,1993,45.27,45813,90s,South Africa
+GC Smith,2002,48.7,47270,00s,South Africa
+AB de Villiers,2004,50.46,44936,00s,South Africa
+HH Gibbs,1996,41.95,45224,90s,South Africa
+MV Boucher,1997,30.54,44111,90s,South Africa
+DJ Cullinan,1993,44.21,44489,90s,South Africa
+AG Prince,2002,41.64,46788,00s,South Africa
+WJ Cronje,1992,36.41,44485,90s,South Africa
+SM Pollock,1995,32.31,46774,90s,South Africa
+F du Plessis,2012,46.33,44828,Modern,South Africa
+DPMD Jayawardene,1997,49.84,49289,90s,Sri Lanka
+KC Sangakkara,2000,57.4,50710,00s,Sri Lanka
+MS Atapattu,1990,39.02,48124,90s,Sri Lanka
+TT Samaraweera,2001,48.76,50424,00s,Sri Lanka
+PA de Silva,1984,42.97,48462,80s,Sri Lanka
+HP Tillakaratne,1989,42.87,50744,80s,Sri Lanka
+ST Jayasuriya,1991,40.07,49209,90s,Sri Lanka
+AD Mathews,2009,44.27,49764,Modern,Sri Lanka
+A Ranatunga,1982,35.69,50244,80s,Sri Lanka
+TM Dilshan,1999,40.98,48472,90s,Sri Lanka
+WPUJC Vaas,1994,24.32,50804,90s,Sri Lanka
+LD Chandimal,2011,43.94,300628,Modern,Sri Lanka
+S Chanderpaul,1994,51.37,51469,90s,West Indies
+BC Lara,1990,53.17,52337,90s,West Indies
+DL Haynes,1978,42.29,52047,70s,West Indies
+CG Greenidge,1974,44.72,51901,70s,West Indies
+RR Sarwan,2000,40.01,52969,00s,West Indies
+RB Richardson,1983,44.39,52810,80s,West Indies
+CH Gayle,2000,42.18,51880,00s,West Indies
+CL Hooper,1987,36.46,52066,80s,West Indies
+IVA Richards,1974,50.23,52812,70s,West Indies
+MN Samuels,2000,32.64,52983,00s,West Indies
+JC Adams,1992,41.26,51100,90s,West Indies
+CH Lloyd,1966,46.67,52345,70s,West Indies
+KC Brathwaite,2011,37.43,348024,Modern,West Indies
+A Flower,1992,51.54,55427,90s,Zimbabwe
+GW Flower,1992,29.54,55429,90s,Zimbabwe
+HH Streak,1993,22.35,55761,90s,Zimbabwe

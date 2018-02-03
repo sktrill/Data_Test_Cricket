@@ -1,0 +1,12 @@
+name: data_test_cricket
+title:
+username:
+account: thekotecha
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 270833
+bundleId: 1205636
+url: https://thekotecha.shinyapps.io/data_test_cricket/
+when: 1517636979.75816
+asMultiple: FALSE
+asStatic: FALSE

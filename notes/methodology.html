@@ -1,0 +1,150 @@
+<head>
+  <!-- MathJax -->
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	</script>
+  <script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+</head>
+<body>
+  <div style = "padding: 24px; padding-right: 40px">
+    <h4><strong>Dataset description</strong></h4>
+    <p>
+      The dataset was compiled by scraping Test batsman player data from the ESPN Cricinfo
+      website. In all 100 players were picked from Test playing nations with the distribution
+      skewed towards those nations that have been playing for longer. Batsmen were picked
+      with a minimum of 5000 Test runs played in both home and away conditions. Every Test inning
+      played by the batsman was scraped with key variables such as <em>dismissal</em>, <em>balls faced</em>, <em>opposition</em>,
+      <em>ground played</em>, <em>runs scored</em>, <em>year</em> etc. Check out the abridged dataset in the <strong>Data</strong> tab.
+    </p>
+    <br />
+
+    <h4><strong>Method</strong></h4>
+    <p>
+      The natural feature of a batsman's inning lends itself to a single event time analysis.
+      Given the natural resolution of the dataset we can use the balls faced by a batsman as a good proxy for time
+      with the single event being the dismissal of the batsman. The
+      <a href="Density Plot of Balls Faced.png" target="_blank">distribution of balls faced</a>
+      follows a very Poisson-like distribution - this is perhaps to be expected seeing as how dismissals are rare and random, and
+      balls faced are discrete, independent events. With this perspective we can gauge the statistical impact of a number of
+      factors on the likelihood of event (batsman dismissal) occurence, such as: <em>opposition</em>, <em>ground played</em>,
+      <em>innings batted in</em>, <em>batting position</em> - as available in the dataset.
+    </p>
+    <p>
+      Consider that the number of batsmen out is proportional to the number of batsmen batting. We can write this as such:
+    </p>
+    <p>\[batsman_{out} = h \times batsman_{atbat}\]</p>
+    <p>
+      Where \(h\) is a proportionality constant and can be described as the <em>rate of batsman getting out</em>, or more simply as a
+      <em>hazard rate</em> with units of 1 / time (risk frequency). This can be reinterpreted to model the probability of
+      survival for a given batsman over time as:
+    </p>
+    <p>\[S(t) = S_{o}e^{-ht} \equiv S(t) = e^{-cumhaz} \rightarrow S(t) = Pr(T \gt t) = 1 - F(t) \] </p>
+    <p>
+      Where \(S(t)\) gives the probability that a batsman will survive past time \(t\) and \(F(t)\) is the CDF of \(f\), which
+      gives the probability of failure over time. As \(t \rightarrow \infty\) the survival function \(S(t) \rightarrow 0\).
+      Since the hazard rate can be thought of as the instantenous rate of an event occuring
+      (i.e. risk of batsman getting out), the cumulative hazard \(cumhaz\) describes the accumulated risk up to a time \(t\).
+      Assuming an unknown distribution for our purposes, we can estimate this survival function \(S(t)\) via the non-parametric Kaplan-Meier estimator:
+    </p>
+    <p>\[S(t_{i}) = S(t_{i - 1})( 1 - \frac {d_{i}}{n_{i}}) \]</p>
+    <p>
+      Where \(n_i\) is the number of surviving batsman and \(d_i\) is the number of outs at \(t_i\) after removing
+      for any not outs, i.e. events without a failure event until time \(t_i\). Such innings are censored from the calculation of
+      survival rates as they provide no additional information and are in essence incomplete.
+    </p>
+    <p>
+      For our purposes, Kaplan-Meier survival curve were performed for
+      <a href="Survival Curve - Tendulkar.png" target="_blank">individual batsman</a>
+       and
+      <a href="Survival Curve - Tendulkar, Ganguly.png" target="_blank">groups of batsman</a>
+      to visualize the difference in their median survival rates. Batsman survival curves were further compared to visualize the effect
+      of different factors such as:
+      <ol>
+        <li>Batting at
+          <a href="Factor Analysis 1.png" target="_blank">home</a>
+           or on
+          <a href="Factor Analysis 2.png" target="_blank">away</a>
+           grounds</li>
+        <li>Batting in the first or second
+          <a href="Factor Analysis 3.png" target="_blank">innings</a></li>
+        <li>Batting against the
+          <a href="Factor Analysis 4.png" target="_blank">top teams</a>
+           of the era</li>
+        <li>Batting at
+          <a href="Factor Analysis 5.png" target="_blank">different positions</a></li>
+      </ol>
+      The Log-Rank test, a non-parametric test with a null hypothesis such that two survival curves are identical, was then performed
+      to test for statistical significance in the difference of two survival curves as a result of a factor. It was discovered
+      that the
+      <a href="Survdiff - Home.png" target="_blank">home/away</a>,
+      <a href="Survdiff - Inn.png" target="_blank">innings</a>
+       and
+      <a href="Survdiff - TopTeam.png" target="_blank">top team</a>
+      factors had statistically significant p-values.
+    </p>
+    <p>
+      Th Log-Rank test works well for univariate analysis involving categorical variables.
+      However in order to examine the impact of non-categorical variables, namely batting position and years played, and to examine the combined
+      effects of different factors a Cox proportional-hazards regression model was specified.
+      The Cox model can be thought of as a multiple linear regression on the logarithm of the hazard of each factor. Consider the
+      hazard function of two batsman (\(bat1 , bat2\)) of the form:
+      <p>\[h_{bat1}(t) = h_0(t)exp(b_1x_1 + b_2x_2 + \cdots + b_nx_n)\]</p>
+      <p>\[h_{bat2}(t) = h_0^*(t)exp(b_1x_1^* + b_2x_2^* + \cdots + b_nx_n^*)\]</p>
+      Where \(\exp(b_i)\) is the hazard ratio of each factor \(x_i\) scaled by its impact coefficient \(b_i\). The
+      <a href="https://courses.washington.edu/b515/l17.pdf" target="_blank">Cox proportional-hazards model</a>
+      is then the ratio of these hazard functions, such that:
+
+      <p>\[\frac{h_{bat1}(t)}{h_{bat2}(t)} = \frac{h_0(t)e^{\sum_{i = 1}^n{b_ix_i}}} {h_0^*(t)e^{\sum_{i = 1}^n{b_ix_i^*}}}\]</p>
+      <p>\[\frac{h_{bat1}(t)}{h_{bat2}(t)} = \frac{e^{\sum_{i = 1}^n{b_ix_i}}} {e^{\sum_{i = 1}^n{b_ix_i^*}}}\]</p>
+      <p>\[h(X : X^*) = \frac{e^{\hat b \times X}}{e^{\hat b \times X^*}} = exp(\hat b (X - X^*))\]</p>
+
+      Where \(\hat b\) is the maximum likelihood estimate of \(b\) and indicates the increase / decrease in event hazard (dismissal)
+      for each factor. The hazard function of any one batsman is thus assumed proportional to the hazard of another
+      (this can also be verified visually by plotting \(log(-log(S(t))) vs. log(balls_{faced})\) graphs to ensure that they do not
+      <a href="Cloglog - TopTeam.png" target="_blank">diverge or cross</a>). The scaled schoenfeld and martingale
+      <a href="https://goo.gl/AV97wu" target="_blank">residuals</a> (technically
+      <a href="http://www.math.ucsd.edu/~rxu/math284/slect9.pdf" target="_blank">deviance residuals</a>,
+      which are a normalized transform of martingale residuals with \(\mu = 0\) and \(\sigma = 1\))
+      were calculated to verify this proportional-hazards assumption (that residuals are not autocorrelated), confirm model specification and discover outliers.
+    </p>
+    <p>
+      The
+      <a href="Schoenfield - Combined.png" target="_blank">scaled schoenfeld residual plots</a>
+      confirmed that the proportional hazards assumption was not violated by <thead>
+      <a href="Schoenfield - Home.png" target="_blank">home/away</a> and
+      <a href="Schoenfield - TopTeam.png" target="_blank">top team</a>
+      factors but was in fact violated for the
+      <a href="Schoenfield - First.png" target="_blank">innnings</a> factor.
+      The
+      <a href="Model Residuals2.png" target="_blank">deviance residuals</a>
+      confirm as well that there were
+      <a href="Model Residuals1.png" target="_blank">no major outliers</a> for the Cox proportional-hazards regression model.
+      The statistical analysis confirmed that the key factors that impacted the
+      survival probability of Test batsman were in fact whether batsman were:
+      <ol>
+        <li>Batting at home / away grounds</li>
+        <li>Batting against the top teams</li>
+      </ol>
+    </p>
+    <p>
+      Based on the factors above, the dataset was cut according to two metrics:
+      <ol>
+        <li>Metric 1 - a measure of consistency across conditions</li>
+        <li>Metric 2 - a measure of performance in tough conditions</li>
+      </ol>
+      The resulting K-means
+      cluster analysis
+      revealed five clusters of players. The top-right cluster included the
+      very best Test batsmen, those that were both consistent and capable of performing under adverse conditions.
+      Play around with the findings in the <strong>Discussion</strong> tab.
+    </p>
+    <br />
+
+
+
+
+  </div>
+</body>
