@@ -1,6 +1,6 @@
 ﻿# Data_Test_Cricket
 
-Play with the app here: (link to Shiny app)
+Play with the app here: https://thekotecha.shinyapps.io/data_test_cricket/
 
 <p><b>Background</b></p>
 <p>
@@ -21,7 +21,9 @@ fewer still survive.
 
 
 <p><b>Purpose</b></p>
-How do you tell a great Test batsman from merely a good one?
+<p>
+  How do you tell a great Test batsman from merely a good one?
+</p>
 
 <p>Data Sources</p>
 <ul>
